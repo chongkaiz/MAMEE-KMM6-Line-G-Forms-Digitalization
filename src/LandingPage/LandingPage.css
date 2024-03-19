@@ -1,0 +1,27 @@
+@media (orientation: portrait) {
+  .mamee-logo {
+    width: 50vw;
+  }
+  
+  .synclogic-logo {
+    width: 25vw;
+  }
+  
+  .text {
+    font-size: 2vh;
+  }
+}
+
+@media (orientation: landscape) {
+  .mamee-logo {
+    width: 50vh;
+  }
+  
+  .synclogic-logo {
+    width: 25vh;
+  }
+  
+  .text {
+    font-size: 2vw;
+  }
+}
