@@ -1,7 +1,6 @@
-import { Stack, Grid } from "@mantine/core"
+import { Grid, Button } from "@mantine/core"
 import { FormProvider, useForm } from "react-hook-form";
 import { DynamicFieldData } from "../DynamicForms/dynamic-control-types.tsx";
-import { ErrorMessage } from "@hookform/error-message";
 
 import DynamicControl from "../DynamicForms/DynamicControl.tsx";
 
@@ -26,19 +25,13 @@ export default function TestForms({ fields }: FormProps) {
             <FormProvider {...formMethods}>
                 <Grid gutter={30}>
                     {fields.map((data, i) => (
-                        <Grid.Col key={i} span={4}>
-                            <Stack gap={8}>
-                                <DynamicControl control={control} data={data} />
-                                <ErrorMessage errors={errors} name={data.fieldName} />
-                            </Stack>
-                        </Grid.Col>
+                        <DynamicControl key={i} control={control} data={data} errors={errors} />
                     ))}
                 </Grid>
             </FormProvider>
-
-            <button type="submit" disabled={isSubmitting}>
+            <Button mt={60} type="submit" disabled={isSubmitting}>
                 {isSubmitting ? "Submitting" : "Submit"}
-            </button>
+            </Button>
         </form>
     );
 }
