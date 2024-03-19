@@ -22,3 +22,7 @@ Interface map:
 
 Functions:
 - [ ] login function for users
+
+
+Current Progress:
+- [ ] layout for react router using <Outlet>
