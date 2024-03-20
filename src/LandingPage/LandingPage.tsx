@@ -29,7 +29,7 @@ export default function LandingPage() {
         align='center'
         bg='#FFE900'>
         <img className='mamee-logo'
-          alt="MAMEE logo" src="src\assets\Mamee.png" />
+          alt="MAMEE logo" src="\src\assets\Mamee.png" />
       </Flex>
       <Flex
         gap="md"
@@ -39,7 +39,7 @@ export default function LandingPage() {
         right='1em'>
         <div className='text'>Powered by:</div>
         <img className='synclogic-logo'
-          alt="SyncLogic logo" src="src\assets\SyncLogic LOGO.png" />
+          alt="SyncLogic logo" src="\src\assets\SyncLogic LOGO.png" />
       </Flex>
     </Flex>
   );

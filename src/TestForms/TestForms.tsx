@@ -1,4 +1,4 @@
-import { Grid, Button } from "@mantine/core"
+import { Flex, Grid, Button, Center } from "@mantine/core"
 import { FormProvider, useForm } from "react-hook-form";
 import { DynamicFieldData } from "../DynamicForms/dynamic-control-types.tsx";
 
@@ -8,7 +8,7 @@ interface FormProps {
     fields: DynamicFieldData[];
 }
 
-export default function TestForms({ fields }: FormProps) {
+export default function TestForms( {fields} : FormProps) {
     const formMethods = useForm();
     const {
         handleSubmit,
@@ -21,17 +21,21 @@ export default function TestForms({ fields }: FormProps) {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <FormProvider {...formMethods}>
-                <Grid gutter={30}>
-                    {fields.map((data, i) => (
-                        <DynamicControl key={i} control={control} data={data} errors={errors} />
-                    ))}
-                </Grid>
-            </FormProvider>
-            <Button mt={60} type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Submitting" : "Submit"}
-            </Button>
-        </form>
+        <Flex>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <FormProvider {...formMethods}>
+                    <Grid gutter={30}>
+                        {fields.map((data, i) => (
+                            <DynamicControl key={i} control={control} data={data} errors={errors} />
+                        ))}
+                    </Grid>
+                </FormProvider>
+                <Center>
+                    <Button mt={60} type="submit" disabled={isSubmitting}>
+                        {isSubmitting ? "Submitting" : "Submit"}
+                    </Button>
+                </Center>
+            </form>
+        </Flex>
     );
 }

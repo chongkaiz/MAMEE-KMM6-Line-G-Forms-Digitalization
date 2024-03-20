@@ -3,11 +3,12 @@ import { MantineProvider } from '@mantine/core';
 
 import '@mantine/core/styles.css';
 
-import { fields } from "./DynamicForms/data";
 import HomePage from './HomePage/HomePage';
 import LandingPage from "./LandingPage/LandingPage";
-import TestForms from './TestForms/TestForms';
 import './App.css'
+
+import { FormsPage, GraphPage, ReportsPage, NewFormPage } from './Pages/Pages'
+
 
 const router = createBrowserRouter([
   {
@@ -16,11 +17,26 @@ const router = createBrowserRouter([
   },
   {
     path: '/home',
-    element: <HomePage />
-  },
-  {
-    path: '/form-1',
-    element: <TestForms fields={fields} />
+    element: <HomePage />,
+    children: [
+      {
+        index: true,
+        element: <FormsPage />,
+      },
+      {
+        path: 'graphs',
+        element: <GraphPage />
+      },
+      {
+        path: 'reports',
+        element: <ReportsPage />
+      },
+      {
+        path: 'new-form',
+        element: <NewFormPage />
+      },
+
+    ]
   }
 ]);
 
