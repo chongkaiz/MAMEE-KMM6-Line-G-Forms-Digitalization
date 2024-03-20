@@ -25,4 +25,6 @@ Functions:
 
 
 Current Progress:
-- [ ] layout for react router using <Outlet>
+- [x] layout for react router using <Outlet>
+- [ ] backend
+- [ ] add new forms
