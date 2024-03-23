@@ -28,6 +28,9 @@ const headerFields: DynamicFieldData[] = [
         fieldName: "line",
         inputType: "number",
         label: "Line",
+        config: {
+            disabled: true
+        },
         defaultValue: 1
     },
     {
@@ -43,7 +46,10 @@ const footerFields: DynamicFieldData[] = [
         fieldName: "recorded",
         inputType: "text",
         label: "Recorded by Operator",
-        defaultValue: ""
+        config: {
+            disabled: true
+        },
+        defaultValue: "Operator"
     },
     {
         fieldName: "remarks",

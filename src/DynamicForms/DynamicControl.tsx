@@ -31,6 +31,7 @@ export default function DynamicControl(props: { control: Control<FieldValues>, d
                 label={props.data.label}
                 onChange={onChange}
                 value={value}
+                disabled={props.data.config?.disabled}
               />
             )}
           />
@@ -83,6 +84,7 @@ export default function DynamicControl(props: { control: Control<FieldValues>, d
                 label={props.data.label}
                 onChange={onChange}
                 value={value}
+                disabled={props.data.config?.disabled}
               />
             )}
           />
