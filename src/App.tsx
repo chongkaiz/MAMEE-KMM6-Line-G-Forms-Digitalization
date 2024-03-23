@@ -3,11 +3,14 @@ import { MantineProvider } from '@mantine/core';
 
 import '@mantine/core/styles.css';
 
+
 import HomePage from './HomePage/HomePage';
 import LandingPage from "./LandingPage/LandingPage";
+import TestForms from "./TestForms/TestForms";
 import './App.css'
 
-import { FormsPage, GraphPage, ReportsPage, NewFormPage } from './Pages/Pages'
+
+import { FormsPage, ReviewPage, GraphPage, ReportsPage, NewFormPage } from './Pages/Pages'
 
 
 const router = createBrowserRouter([
@@ -22,6 +25,15 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <FormsPage />,
+      },
+      {
+        path: 'form-input',
+        element: <TestForms />,
+      },
+      {
+        path: 'form-check',
+        element: <ReviewPage />,
+        
       },
       {
         path: 'graphs',

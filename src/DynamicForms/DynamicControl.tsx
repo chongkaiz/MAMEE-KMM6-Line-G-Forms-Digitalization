@@ -1,28 +1,58 @@
-import { TimeInput, TextInput, NumberInput } from "react-hook-form-mantine"
-import { Control, FieldValues, FieldErrors } from "react-hook-form";
-import { ErrorMessage } from "@hookform/error-message";
-import { Stack, Grid } from "@mantine/core"
+import { useRef } from "react";
+import { Center } from '@mantine/core'
+import { Control, FieldValues, Controller } from "react-hook-form";
+import { TimeInput, DatePickerInput } from "@mantine/dates"
+import { IconClock } from "@tabler/icons-react";
+import { TextInput, Textarea, NumberInput, Grid, ActionIcon, rem } from "@mantine/core"
 
 import { DynamicFieldData } from "./dynamic-control-types";
 
-export default function DynamicControl(props: { errors: FieldErrors<FieldValues>, control: Control<FieldValues>, data: DynamicFieldData }) {
+
+export default function DynamicControl(props: { control: Control<FieldValues>, data: DynamicFieldData }) {
+  const ref = useRef<HTMLInputElement>(null);
+
+  const pickerControl = (
+    <ActionIcon variant="subtle" color="gray" onClick={() => ref.current?.showPicker()}>
+      <IconClock style={{ width: rem(16), height: rem(16) }} stroke={1.5} />
+    </ActionIcon>
+  );
 
   switch (props.data.inputType) {
     case "text":
       return (
-        <Grid.Col span={4}>
-          <Stack gap={8}>
-            <TextInput
-              name={props.data.fieldName}
-              id={props.data.fieldName}
-              control={props.control}
-              label={props.data.label}
-              defaultValue={props.data.defaultValue}
-            />
-            <ErrorMessage errors={props.errors} name={props.data.fieldName} />
-          </Stack>
+        <Grid.Col span={3}>
+          <Controller
+            name={props.data.fieldName}
+            control={props.control}
+            defaultValue={props.data.defaultValue}
+            render={({ field: { onChange, value } }) => (
+              <TextInput
+                id={props.data.fieldName}
+                label={props.data.label}
+                onChange={onChange}
+                value={value}
+              />
+            )}
+          />
         </Grid.Col>
       );
+    case "remarks":
+      return (<Grid.Col span={3}>
+        <Controller
+          name={props.data.fieldName}
+          control={props.control}
+          defaultValue={props.data.defaultValue}
+          render={({ field: { onChange, value } }) => (
+            <Textarea
+              id={props.data.fieldName}
+              label={props.data.label}
+              onChange={onChange}
+              value={value}
+              rows={3}
+            />
+          )}
+        />
+      </Grid.Col>);
     /* case "select": {
       return (
         <select
@@ -42,32 +72,66 @@ export default function DynamicControl(props: { errors: FieldErrors<FieldValues>
     */
     case "number":
       return (
-        <Grid.Col span={4}>
-          <Stack gap={8}>
-            <NumberInput
-              name={props.data.fieldName}
-              id={props.data.fieldName}
-              control={props.control}
-              label={props.data.label}
-              defaultValue={props.data.defaultValue}
-            />
-            <ErrorMessage errors={props.errors} name={props.data.fieldName} />
-          </Stack>
+        <Grid.Col span={3}>
+          <Controller
+            name={props.data.fieldName}
+            control={props.control}
+            defaultValue={props.data.defaultValue}
+            render={({ field: { onChange, value } }) => (
+              <NumberInput
+                id={props.data.fieldName}
+                label={props.data.label}
+                onChange={onChange}
+                value={value}
+              />
+            )}
+          />
+        </Grid.Col>
+      );
+    case "date":
+      return (
+        <Grid.Col span={3}>
+          <Controller
+            name={props.data.fieldName}
+            control={props.control}
+            defaultValue={props.data.defaultValue}
+            render={({ field: { onChange, value } }) => (
+              <DatePickerInput
+                id={props.data.fieldName}
+                label={props.data.label}
+                placeholder="Select Date"
+                onChange={onChange}
+                value={value}
+              />
+            )}
+          />
         </Grid.Col>
       );
     case "time":
       return (
         <Grid.Col span={6}>
-          <Stack gap={8}>
-            <TimeInput
+          <Center>
+            <Controller
               name={props.data.fieldName}
-              id={props.data.fieldName}
+              control={props.control}
+              defaultValue={props.data.defaultValue}
+              render={({ field: { onChange, value } }) => (
+                <TimeInput w="100%"
+                  id={props.data.fieldName}
+                  label={props.data.label}
+                  onChange={onChange}
+                  value={value}
+                  ref={ref}
+                  rightSection={pickerControl}
+                />)}
+            />
+            {/* <TimeInput w="100%"
+              name={props.data.fieldName}
               control={props.control}
               label={props.data.label}
               defaultValue={props.data.defaultValue}
-            />
-            <ErrorMessage errors={props.errors} name={props.data.fieldName} />
-          </Stack>
+            /> */}
+          </Center>
         </Grid.Col>
       )
     default:

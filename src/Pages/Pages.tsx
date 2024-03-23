@@ -1,7 +1,6 @@
-import { Button, Stack, Title, Center, Modal } from "@mantine/core"
-import { useDisclosure } from "@mantine/hooks";
+import { Button, Grid, Stack, Title, Center } from "@mantine/core"
+import { useNavigate } from "react-router-dom";
 
-import TestForms from "../TestForms/TestForms";
 import { fields } from "../DynamicForms/data";
 
 
@@ -14,19 +13,34 @@ export function WelcomePage() {
 }
 
 export function FormsPage() {
-    const [opened, { open, close }] = useDisclosure(false);
+    const navigate = useNavigate();
+
+    return (
+        <Grid w="100%" align="center" gutter={20}>
+            <Grid.Col span={12} bg="white">
+                <Title order={3}>Key-in Forms Page</Title>
+            </Grid.Col>
+            <Grid.Col span={4} bg="white">
+                <Button w="100%" h="60" variant="filled" onClick={() => navigate('form-input', { state: fields })}>Daily Dry Mixer Record</Button>
+            </Grid.Col>
+            <Grid.Col span={4} bg="white">
+                <Button w="100%" h="60" variant="filled" onClick={() => navigate('form-input', { state: fields })}>Crisps Control Record</Button>
+            </Grid.Col>
+            <Grid.Col span={4} bg="white">
+                <Button w="100%" h="60" variant="filled" onClick={() => navigate('form-input', { state: fields })}>Fryer Section Record</Button>
+            </Grid.Col>
+            <Grid.Col span={4} bg="white">
+                <Button w="100%" h="60" variant="filled" onClick={() => navigate('form-input', { state: fields })}>Daily Pre-Operational Cleaning Checklist (Crushed MPC)</Button>
+            </Grid.Col>
+        </Grid>
+    )
+}
+
+export function ReviewPage() {
 
     return (
         <Stack w="100%" align="center">
-            <Modal opened={opened} onClose={close}
-                title={<div><Title order={2}>Form 1</Title></div>}
-                fullScreen={true}
-                radius={0}
-                transitionProps={{ transition: 'slide-left', duration: 200 }}>
-                <TestForms fields={fields} />
-            </Modal>
-            <Title order={3}>Digital Forms Page</Title>
-            <Button variant="filled" w={120} onClick={open}>Open Form 1</Button>
+            <Title order={3}>Review Forms Page</Title>
         </Stack>
     )
 }

@@ -1,45 +1,17 @@
 import { DynamicFieldData } from "./dynamic-control-types";
 
-/*
-formFieldsDryMixerRecord = {
-    startTime: string,
-    stopTime: string,
-    emflake3862: number,
-    emflake3910: number,
-    aviko230: number,
-    aviko530: number,
-    agriato: number,
-    goodrich: number,
-    asandas: number,
-    mixedStarch: number,
-    palmAndSoy: number,
-    palmOlein: number,
-    scrapFlake: number,
-    scrapFlakeNoSoy: number,
-    recorded: string,
-    verified: string,
-    remarks: string
-}
-*/
-
 export const fields: DynamicFieldData[] = [
     {
         fieldName: "startTime",
         inputType: "time",
         label: "Start Time",
-        defaultValue: "",
-        config: {
-            required: "Required"
-        }
+        defaultValue: ""
     },
     {
         fieldName: "stopTime",
         inputType: "time",
         label: "Stop Time",
-        defaultValue: "",
-        config: {
-            required: "Required"
-        }
+        defaultValue: ""
     },
     {
         fieldName: "emflake3862",
@@ -112,23 +84,5 @@ export const fields: DynamicFieldData[] = [
         inputType: "number",
         label: "Addition of Scrap Flake (TGCC: No Soy)",
         defaultValue: 0
-    },
-    {
-        fieldName: "recorded",
-        inputType: "text",
-        label: "Recorded by Operator",
-        defaultValue: ""
-    },
-    {
-        fieldName: "verified",
-        inputType: "text",
-        label: "Verified by PN Asst. Sup/ Supervisor",
-        defaultValue: ""
-    },
-    {
-        fieldName: "remarks",
-        inputType: "text",
-        label: "Remarks",
-        defaultValue: ""
     }
 ];
