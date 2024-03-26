@@ -13,7 +13,7 @@ export default function LandingPage() {
       const now = new Date().valueOf();
       const waitTime = Math.max(0, -(new Date().valueOf() - now) + 1500);
       await new Promise(resolve => setTimeout(resolve, waitTime));
-      navigate('/home');
+      navigate('/login');
     }
     LandingPage();
   }, []);

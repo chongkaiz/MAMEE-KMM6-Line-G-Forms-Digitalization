@@ -15,3 +15,14 @@ export interface DynamicFieldData {
   config?: RegisterOptions;
   options?: SelectOption[];
 }
+
+export interface formStructure {
+  formName: string;
+  fields: {
+    headerFields: DynamicFieldData[];
+    timeFields: DynamicFieldData[];
+    dataFields: DynamicFieldData[];
+    checkFields?: DynamicFieldData[];
+    footerFields: DynamicFieldData[];
+  }
+}

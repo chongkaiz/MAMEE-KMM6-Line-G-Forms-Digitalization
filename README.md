@@ -26,6 +26,14 @@ Functions:
 
 Current Progress:
 - [x] layout for react router using <Outlet>
-- [ ] form validation
+- [x] form validation
 - [ ] backend
 - [ ] add new forms
+
+Mock:
+- [x] Daily Dry Mixer Record, Fryer Section Record, Crisps Control Record form
+- [ ] operator & supervisor login to different page
+- [ ] check before submit data
+- [ ] validation with mock data
+- [ ] graph with mock data
+- [ ] report with mock data

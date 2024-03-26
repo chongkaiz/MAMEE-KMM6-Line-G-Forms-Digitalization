@@ -12,6 +12,7 @@
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^3.3.4",
+    "@mantine/charts": "^7.6.2",
     "@mantine/core": "^7.6.2",
     "@mantine/dates": "^7.6.2",
     "@mantine/hooks": "^7.6.2",

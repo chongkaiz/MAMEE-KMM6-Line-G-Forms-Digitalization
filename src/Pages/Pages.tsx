@@ -1,38 +1,21 @@
-import { Button, Grid, Stack, Title, Center } from "@mantine/core"
+import { Button, Stack, Title, Center, Flex } from "@mantine/core"
 import { useNavigate } from "react-router-dom";
 
-import { fields } from "../DynamicForms/data";
+import { DailyDryMixerRecord, FryerSectionRecord, CrispsControlRecord } from "../DynamicForms/FormStructure";
 
-
-export function WelcomePage() {
-    return (
-        <Center>
-            <Title order={3}>Welcome KMM6</Title>
-        </Center>
-    )
-}
 
 export function FormsPage() {
     const navigate = useNavigate();
 
     return (
-        <Grid w="100%" align="center" gutter={20}>
-            <Grid.Col span={12} bg="white">
-                <Title order={3}>Key-in Forms Page</Title>
-            </Grid.Col>
-            <Grid.Col span={4} bg="white">
-                <Button w="100%" h="60" variant="filled" onClick={() => navigate('form-input', { state: fields })}>Daily Dry Mixer Record</Button>
-            </Grid.Col>
-            <Grid.Col span={4} bg="white">
-                <Button w="100%" h="60" variant="filled" onClick={() => navigate('form-input', { state: fields })}>Crisps Control Record</Button>
-            </Grid.Col>
-            <Grid.Col span={4} bg="white">
-                <Button w="100%" h="60" variant="filled" onClick={() => navigate('form-input', { state: fields })}>Fryer Section Record</Button>
-            </Grid.Col>
-            <Grid.Col span={4} bg="white">
-                <Button w="100%" h="60" variant="filled" onClick={() => navigate('form-input', { state: fields })}>Daily Pre-Operational Cleaning Checklist (Crushed MPC)</Button>
-            </Grid.Col>
-        </Grid>
+        <Stack>
+            <Title order={3}>Key-in Forms Page</Title>
+            <Flex w="100%" direction="column" align="flex-start" p={20} gap={20}>
+                <Button w="200" variant="filled" color="#1F3E95" onClick={() => navigate('form-input', { state: DailyDryMixerRecord })}>Daily Dry Mixer Record</Button>
+                <Button w="200" variant="filled" color="#1F3E95" onClick={() => navigate('form-input', { state: FryerSectionRecord })}>Fryer Section Record</Button>
+                <Button w="200" variant="filled" color="#1F3E95" onClick={() => navigate('form-input', { state: CrispsControlRecord })}>Crisps Control Record</Button>
+            </Flex>
+        </Stack >
     )
 }
 

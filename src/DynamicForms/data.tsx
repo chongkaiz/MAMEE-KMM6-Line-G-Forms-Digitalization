@@ -1,88 +1,69 @@
-import { DynamicFieldData } from "./dynamic-control-types";
+export interface dailyDryMixerStruct {
+    date: string;
+    buyer: string;
+    line: string;
+    product: string;
+    startTime: string;
+    stopTime: string;
+    emflake3862: number;
+    emflake3910: number;
+    aviko230: number;
+    aviko530: number;
+    agriato: number;
+    goodrich: number;
+    asandas: number;
+    mixedStarch: number;
+    palmAndSoy: number;
+    palmOlein: number;
+    scrapFlake: number;
+    scrapFlakeNoSoy: number;
+    recorded: string;
+    remarks: string;
+}
 
-export const fields: DynamicFieldData[] = [
-    {
-        fieldName: "startTime",
-        inputType: "time",
-        label: "Start Time",
-        defaultValue: ""
-    },
-    {
-        fieldName: "stopTime",
-        inputType: "time",
-        label: "Stop Time",
-        defaultValue: ""
-    },
-    {
-        fieldName: "emflake3862",
-        inputType: "number",
-        label: "Emflake 3862",
-        defaultValue: 0
-    },
-    {
-        fieldName: "emflake3910",
-        inputType: "number",
-        label: "Emflake 3910",
-        defaultValue: 0
-    },
-    {
-        fieldName: "aviko230",
-        inputType: "number",
-        label: "Aviko 230",
-        defaultValue: 0
-    },
-    {
-        fieldName: "aviko530",
-        inputType: "number",
-        label: "Aviko 530",
-        defaultValue: 0
-    },
-    {
-        fieldName: "agriato",
-        inputType: "number",
-        label: "Agriato",
-        defaultValue: 0
-    },
-    {
-        fieldName: "goodrich",
-        inputType: "number",
-        label: "India Flake - Goodrich",
-        defaultValue: 0
-    },
-    {
-        fieldName: "asandas",
-        inputType: "number",
-        label: "India Flake - Asandas",
-        defaultValue: 0
-    },
-    {
-        fieldName: "mixedStarch",
-        inputType: "number",
-        label: "Mixed Starch",
-        defaultValue: 0
-    },
-    {
-        fieldName: "palmAndSoy",
-        inputType: "number",
-        label: "Addition of Palm Olein + Soy Lecithin",
-        defaultValue: 0
-    },
-    {
-        fieldName: "palmOlein",
-        inputType: "number",
-        label: "Addition of Palm Olein (TGCC)",
-        defaultValue: 0
-    },
-    {
-        fieldName: "scrapFlake",
-        inputType: "number",
-        label: "Addition of Scrap Flake (Normal)",
-        defaultValue: 0
-    },
-    {
-        fieldName: "scrapFlakeNoSoy",
-        inputType: "number",
-        label: "Addition of Scrap Flake (TGCC: No Soy)",
-        defaultValue: 0
-    }
-];
+export interface fryerSectionInterface {
+    date: string;
+    shift: string;
+    line: string;
+    time: string;
+    fryerSpeed: number;
+    fryerTemp: number;
+    seasoningFlavour: string;
+    seasoningSetting: number;
+    cookCondition: boolean;
+    gasLevel: boolean;
+    tranferConveyer: boolean;
+    fryerOilFilter: boolean;
+    fryerOilLevel: boolean;
+    fryerDrumTray: boolean;
+    recorded: string;
+    remarks: string;
+}
+
+export interface crispsControlInterface {
+    date: string;
+    line: string;
+    product: string;
+    time: string;
+    crispsWeightL: number;
+    crispsWeightM: number;
+    crispsWeightR: number;
+    crispsLengthL: number;
+    crispsLengthM: number;
+    crispsLengthR: number;
+    netWeightCanister1: number;
+    netWeightCanister2: number;
+    netWeightCanister3: number;
+    netWeightCanister4: number;
+    netWeightCanister5: number;
+    netWeightCanister6: number;
+    organolepticAroma: boolean;
+    organolepticTaste: boolean;
+    organolepticTexture: boolean;
+    crispsAppearance: boolean;
+    weightBalanceGood: boolean;
+    weightBalanceFaulty: boolean;
+    weightBalanceTotal: number;
+    recorded: string;
+    remarks: string;
+}
