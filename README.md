@@ -22,18 +22,23 @@ Interface map:
 
 Functions:
 - [ ] login function for users
+- [ ] add new forms
 
 
 Current Progress:
 - [x] layout for react router using <Outlet>
 - [x] form validation
 - [ ] backend
-- [ ] add new forms
+
+bugs:
+- [ ] form checking without checkbox, will render empty grid with padding
+- [ ] when navigating back, navbar selection reset (maybe use a state to remember it)
 
 Mock:
 - [x] Daily Dry Mixer Record, Fryer Section Record, Crisps Control Record form
-- [ ] operator & supervisor login to different page
-- [ ] check before submit data
-- [ ] validation with mock data
-- [ ] graph with mock data
+- [x] operator login disable other pages
+- [x] check before submit data
+- [x] validation with mock data
+- [x] graph with mock data
+- [ ] graph maybe need some other lines like mean & std deviation
 - [ ] report with mock data

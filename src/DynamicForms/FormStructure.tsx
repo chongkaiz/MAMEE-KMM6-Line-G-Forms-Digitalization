@@ -330,6 +330,24 @@ export const CrispsControlRecord: formStructure = {
                 defaultValue: 0
             },
             {
+                fieldName: "crispsWidthL",
+                inputType: "number",
+                label: "Crisps Width L (mm)",
+                defaultValue: 0
+            },
+            {
+                fieldName: "crispsWidthM",
+                inputType: "number",
+                label: "Crisps Width M (mm)",
+                defaultValue: 0
+            },
+            {
+                fieldName: "crispsWidthR",
+                inputType: "number",
+                label: "Crisps Width R (mm)",
+                defaultValue: 0
+            },
+            {
                 fieldName: "netWeightCanister1",
                 inputType: "number",
                 label: "Net Weight of Crisps in Canister 1 (g)",

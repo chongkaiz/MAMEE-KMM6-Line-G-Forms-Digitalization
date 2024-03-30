@@ -2,6 +2,17 @@ import { Button, Flex, Grid, TextInput, NumberInput, Checkbox, Title, Divider } 
 import { DatePickerInput } from "@mantine/dates";
 import { useLocation, useNavigate } from "react-router-dom";
 
+interface formCheckType {
+    formName: string;
+    data: {
+        header: { [key: string]: any };
+        check: { [key: string]: any };
+        data: { [key: string]: any };
+        time: { [key: string]: any };
+        footer: { [key: string]: any };
+    }
+}
+
 function DisplayData(props: { label: string, value: any }) {
     switch (typeof props.value) {
         case "string":
@@ -20,22 +31,15 @@ function DisplayData(props: { label: string, value: any }) {
 
 export default function FormCheck() {
     const { state } = useLocation();
-    const categorizedValues: {
-        header: { [key: string]: any };
-        check: { [key: string]: any };
-        data: { [key: string]: any };
-        time: { [key: string]: any };
-        footer: { [key: string]: any };
-    } = state.categorizedValues;
-    const formName: string = state.formName;
+    const categorizedValues: formCheckType = state;
     const navigate = useNavigate();
     console.log("inside form review")
     console.log(categorizedValues)
     return (
         <Flex h="100%" w="100%" direction="column" align="center">
-            <Title order={3}>{formName}</Title>
+            <Title order={3}>{categorizedValues.formName}</Title>
             <Divider my="md" />
-            {Object.entries(categorizedValues).map(([category, values]) => (
+            {Object.entries(categorizedValues.data).map(([category, values]) => (
                 <Grid key={category} gutter={20} pb={100} w="100%">
                     {Object.keys(values).map((key) => (
                         <Grid.Col key={key} span={4}>

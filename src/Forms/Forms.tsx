@@ -1,4 +1,4 @@
-import { Flex, Grid, Button, Center, Divider, Title, Group } from "@mantine/core"
+import { Flex, Grid, Button, Center, Divider, Title } from "@mantine/core"
 import { FormProvider, useForm } from "react-hook-form";
 import { DynamicFieldData, formStructure } from "../DynamicForms/dynamic-control-types.tsx";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,9 +8,6 @@ import DynamicControl from "../DynamicForms/DynamicControl.tsx";
 import { useLocation, useNavigate } from "react-router-dom";
 import { KeyboardEvent } from "react";
 
-interface FormProps {
-    fields: formStructure;
-}
 
 const generateSchema = (formStructure: formStructure["fields"]) => {
     let schema: Record<string, any> = {};
@@ -67,11 +64,11 @@ function mapValues(keyArray: string[], valueArray: any[]) {
     }, {});
 }
 
-export default function TestForms() {
+export default function Forms() {
     const navigate = useNavigate();
     const { state } = useLocation();
 
-    const formData: FormProps["fields"] = state;
+    const formData: formStructure = state;
     const testFormSchema = generateSchema(formData.fields);
     const formMethods = useForm({
         resolver: zodResolver(testFormSchema),
@@ -86,7 +83,7 @@ export default function TestForms() {
     const headerFields = formData.fields.headerFields;
     const timeFields = formData.fields.timeFields;
     const dataFields = formData.fields.dataFields;
-    const checkFields = formData.fields.checkFields;
+    const checkFields = formData.fields.checkFields ? formData.fields.checkFields : undefined;
     const footerFields = formData.fields.footerFields;
 
     const labelHeaderFields = headerFields.map(field => field.label);
@@ -122,16 +119,19 @@ export default function TestForms() {
 
 
         let categorizedValues = {
-            header: headerSection,
-            time: timeSection,
-            data: dataSection,
-            check: checkSection,
-            footer: footerSection
+            formName: formData.formName,
+            data: {
+                header: headerSection,
+                time: timeSection,
+                data: dataSection,
+                check: checkSection,
+                footer: footerSection
+            }
         }
 
         console.log('categorizedValues');
         console.log(categorizedValues);
-        navigate("check", { state: { categorizedValues: categorizedValues, formName: formData.formName} });
+        navigate("check", { state: categorizedValues });
     }
 
 
@@ -140,12 +140,12 @@ export default function TestForms() {
     };
 
     return (
-        <Flex h="100%" direction="column" justify="space-between">
-            <Group justify="space-between">
+        <Flex h="100%" w="100%" direction="column" justify="space-between">
+            <Flex w="100%" justify="space-between" align="center">
                 <Button color="#1F3E95" variant="subtle" onClick={() => navigate(-1)}><IconArrowLeft /></Button>
                 <Title order={3}>{formData.formName}</Title>
                 <Flex></Flex>
-            </Group>
+            </Flex>
             <Divider my="md" />
             <form onSubmit={handleSubmit(onSubmit)} onKeyDown={(e) => checkKeyDown(e)}>
                 <FormProvider {...formMethods}>
@@ -192,9 +192,10 @@ export default function TestForms() {
                         ))}
                     </Grid>
                 </FormProvider>
+                <Divider w="100%" my="md" />
                 <Center>
-                    <Button color="#1F3E95" mt={60} type="submit" disabled={isSubmitting}>
-                        {isSubmitting ? "Submitting" : "Submit"}
+                    <Button color="#1F3E95" mt={60} type="submit" disabled={isSubmitting} loading={isSubmitting}>
+                        Submit
                     </Button>
                 </Center>
             </form>
