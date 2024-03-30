@@ -9,7 +9,7 @@ import { useNavigate, Outlet } from 'react-router-dom'
 
 export default function HomePage(props: {username: string}) {
     const [loading, setLoading] = useState(false);
-    const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(false);
+    const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
     const [active, setActive] = useState(0);
 
     let date = new Date().toDateString()

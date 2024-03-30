@@ -1,20 +1,29 @@
 interface CrispsControlGraphData {
     formName: string;
     header: { [key: string]: any };
-    graphs: {
+    dataset: {
         title: string;
         data: any;
     }[]
 };
 
-export const CrispsControlData1: CrispsControlGraphData = {
+interface CrispsControlReportData {
+    formName: string;
+    header: { [key: string]: any };
+    dataset: {
+        head: any;
+        body: any;
+    }
+};
+
+export const CrispsControlDataGraph: CrispsControlGraphData = {
     formName: "Crisps Control Record",
     header: {
         Date: new Date("2024-03-27T05:11:03.992Z"),
         Line: "A",
         Product: "Crisps"
     },
-    graphs: [{
+    dataset: [{
         title: "Crisps Weight (Average of 10 pcs)",
         data: [
             {
@@ -203,4 +212,25 @@ export const CrispsControlData1: CrispsControlGraphData = {
         ]
     },
     ]
+}
+
+export const CrispsControlDataReport: CrispsControlReportData = {
+    formName: "Crisps Control Record",
+    header: {
+        Date: new Date("2024-03-27T05:11:03.992Z"),
+        Line: "A",
+        Product: "Crisps"
+    },
+    dataset: {
+        head: ["Time", "Crisps Weight L (Average of 10 pcs)", "Crisps Weight M (Average of 10 pcs)", "Crisps Weight R (Average of 10 pcs)", "Crisps Width L (mm)", "Crisps Width M (mm)", "Crisps Width R (mm)", "Crisps Width L (mm)", "Crisps Width M (mm)", "Crisps Width R (mm)", "Organoleptic Aroma", "Organoleptic Taste", "Organoleptic Texture"],
+        body: [
+            ["08:20", 2.15, 2.04, 2.14, 68, 69, 68, 45, 45, 44, "yes", "yes", "yes"],
+            ["08:50", 2.16, 2.05, 2.12, 68, 69, 68, 45, 45, 44, "yes", "yes", "yes"],
+            ["09:20", 2.15, 2.07, 2.10, 68, 69, 68, 44, 44, 44, "yes", "yes", "yes"],
+            ["09:50", 2.17, 2.12, 2.18, 68, 69, 68, 44, 44, 44, "yes", "yes", "yes"],
+            ["10:20", 2.14, 2.06, 2.12, 68, 69, 69, 44, 44, 44, "yes", "yes", "yes"],
+            ["14:40", 2.10, 2.02, 2.04, 67, 67, 67, 44, 44, 44, "yes", "yes", "yes"],
+            ["15:10", 2.11, 2.01, 2.05, 68, 68, 68, 44, 44, 44, "yes", "yes", "yes"],
+        ]
+    }
 }

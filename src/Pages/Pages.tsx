@@ -2,8 +2,8 @@ import { Button, Stack, Title, Flex, Grid } from "@mantine/core"
 import { useNavigate } from "react-router-dom";
 
 import { DailyDryMixerRecord, FryerSectionRecord, CrispsControlRecord } from "../DynamicForms/FormStructure";
-import { ApproveCrispsControlRecord } from "../FormApprove/MockFromApproveData";
-import { CrispsControlData1 } from "../Graphs/GraphMockData"
+import { ApproveCrispsControlRecord } from "../MockData/MockFormApproveData";
+import { CrispsControlDataGraph, CrispsControlDataReport } from "../MockData/MockData"
 
 
 export function FormsPage() {
@@ -60,17 +60,21 @@ export function GraphPage() {
         <Stack w="100%" align="center">
             <Title order={3}>Graph Page</Title>
             <Flex w="100%" direction="column" align="center" p={20} gap={20}>
-                <Button variant="light" color="#1F3E95" onClick={() => navigate('display', { state: CrispsControlData1 })}>Crisps Control Record Graph</Button>
+                <Button variant="light" color="#1F3E95" onClick={() => navigate('display', { state: CrispsControlDataGraph })}>Crisps Control Record Graph</Button>
             </Flex>
         </Stack>
     )
 }
 
 export function ReportsPage() {
+    const navigate = useNavigate();
 
     return (
         <Stack w="100%" align="center">
             <Title order={3}>Reports Page</Title>
+            <Flex w="100%" direction="column" align="center" p={20} gap={20}>
+                <Button variant="light" color="#1F3E95" onClick={() => navigate('display', { state: CrispsControlDataReport })}>Crisps Control Record Report</Button>
+            </Flex>
         </Stack>
     )
 }

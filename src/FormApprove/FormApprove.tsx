@@ -1,4 +1,4 @@
-import { Button, Flex, Grid, Text, Checkbox, Title, Divider, Center, TextInput } from "@mantine/core";
+import { Button, Flex, Grid, Text, Title, Divider, Center, TextInput } from "@mantine/core";
 import { IconArrowLeft } from "@tabler/icons-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -27,7 +27,7 @@ function DisplayData(props: { label: string, value: any }) {
             return (
                 <Flex gap={20} align="center">
                     <Title order={4}>{props.label}:</Title>
-                    <Checkbox disabled checked={props.value} />
+                    {props.value? <Text>{`\u2611`}</Text> : <Text>{`\u2612`}</Text>}
                 </Flex>
             )
         default:

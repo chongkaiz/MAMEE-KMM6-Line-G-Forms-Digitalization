@@ -40,5 +40,5 @@ Mock:
 - [x] check before submit data
 - [x] validation with mock data
 - [x] graph with mock data
-- [ ] graph maybe need some other lines like mean & std deviation
-- [ ] report with mock data
+- [x] graph maybe need some other lines: mean, upper limit, lower limit
+- [x] report with mock data

@@ -1,5 +1,4 @@
-import { Button, Flex, Grid, TextInput, NumberInput, Checkbox, Title, Divider } from "@mantine/core";
-import { DatePickerInput } from "@mantine/dates";
+import { Button, Flex, Grid, Text, Title, Divider } from "@mantine/core";
 import { useLocation, useNavigate } from "react-router-dom";
 
 interface formCheckType {
@@ -16,14 +15,28 @@ interface formCheckType {
 function DisplayData(props: { label: string, value: any }) {
     switch (typeof props.value) {
         case "string":
-            return <TextInput disabled label={props.label} defaultValue={props.value}></TextInput>
         case "number":
-            return <NumberInput disabled label={props.label} defaultValue={props.value}></NumberInput>
+            return (
+                <Flex gap={20} align="center">
+                    <Title order={4}>{props.label}:</Title>
+                    <Text>{props.value}</Text>
+                </Flex>
+            )
         case "boolean":
-            return <Checkbox disabled label={props.label} checked={props.value}></Checkbox>
+            return (
+                <Flex gap={20} align="center">
+                    <Title order={4}>{props.label}:</Title>
+                    {props.value? <Text>{`\u2611`}</Text> : <Text>{`\u2612`}</Text>}
+                </Flex>
+            )
         default:
             if (props.value instanceof Date) {
-                return <DatePickerInput disabled label={props.label} defaultValue={props.value}></DatePickerInput>
+                return (
+                    <Flex gap={20} align="center">
+                        <Title order={4}>{props.label}:</Title>
+                        <Text>{props.value.toLocaleDateString()}</Text>
+                    </Flex>
+                )
             }
     }
 }

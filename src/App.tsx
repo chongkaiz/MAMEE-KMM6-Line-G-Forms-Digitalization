@@ -15,6 +15,7 @@ import { FormsPage, ReviewPage, GraphPage, ReportsPage, NewFormPage } from './Pa
 import FormCheck from './Forms/FormCheck.tsx';
 import FormApprove from './FormApprove/FormApprove.tsx';
 import GraphDisplay from './Graphs/GraphDisplay.tsx';
+import ReportDisplay from './Reports/ReportDisplay.tsx';
 
 
 function App() {
@@ -67,6 +68,10 @@ function App() {
         {
           path: 'reports',
           element: <ReportsPage />
+        },
+        {
+          path: 'reports/display',
+          element: <ReportDisplay />
         },
         {
           path: 'new-form',
