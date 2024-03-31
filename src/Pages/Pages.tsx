@@ -13,9 +13,9 @@ export function FormsPage() {
         <Stack>
             <Title order={3}>Key-in Forms Page</Title>
             <Flex w="100%" direction="column" align="center" p={20} gap={20}>
-                <Button w="200" variant="filled" color="#1F3E95" onClick={() => navigate('form-input', { state: DailyDryMixerRecord })}>Daily Dry Mixer Record</Button>
-                <Button w="200" variant="filled" color="#1F3E95" onClick={() => navigate('form-input', { state: FryerSectionRecord })}>Fryer Section Record</Button>
-                <Button w="200" variant="filled" color="#1F3E95" onClick={() => navigate('form-input', { state: CrispsControlRecord })}>Crisps Control Record</Button>
+                <Button w="200" variant="filled" onClick={() => navigate('form-input', { state: DailyDryMixerRecord })}>Daily Dry Mixer Record</Button>
+                <Button w="200" variant="filled" onClick={() => navigate('form-input', { state: FryerSectionRecord })}>Fryer Section Record</Button>
+                <Button w="200" variant="filled" onClick={() => navigate('form-input', { state: CrispsControlRecord })}>Crisps Control Record</Button>
             </Flex>
         </Stack >
     )
@@ -35,7 +35,7 @@ export function ReviewPage() {
                     <Title order={6}>Time Recorded: 27/3/2024 8:20 AM</Title>
                 </Grid.Col>
                 <Grid.Col span={4} >
-                    <Button w="200" variant="filled" color="#1F3E95" onClick={() => navigate('approve', { state: ApproveCrispsControlRecord })}>Review and Approve</Button>
+                    <Button w="200" variant="filled" onClick={() => navigate('approve', { state: ApproveCrispsControlRecord })}>Review and Approve</Button>
                 </Grid.Col>
             </Grid>
             <Grid py={10} style={{ border: "solid grey 0.5px" }} w="100%" align="center">
@@ -46,7 +46,7 @@ export function ReviewPage() {
                     <Title order={6}>Time Recorded: 27/3/2024 9:20 AM</Title>
                 </Grid.Col>
                 <Grid.Col span={4} >
-                    <Button w="200" variant="filled" color="#1F3E95" onClick={() => navigate('approve', { state: ApproveCrispsControlRecord })}>Review and Approve</Button>
+                    <Button w="200" variant="filled" onClick={() => navigate('approve', { state: ApproveCrispsControlRecord })}>Review and Approve</Button>
                 </Grid.Col>
             </Grid>
         </Stack>
@@ -60,7 +60,7 @@ export function GraphPage() {
         <Stack w="100%" align="center">
             <Title order={3}>Graph Page</Title>
             <Flex w="100%" direction="column" align="center" p={20} gap={20}>
-                <Button variant="light" color="#1F3E95" onClick={() => navigate('display', { state: CrispsControlDataGraph })}>Crisps Control Record Graph</Button>
+                <Button variant="light" onClick={() => navigate('display', { state: CrispsControlDataGraph })}>Crisps Control Record Graph</Button>
             </Flex>
         </Stack>
     )
@@ -73,7 +73,7 @@ export function ReportsPage() {
         <Stack w="100%" align="center">
             <Title order={3}>Reports Page</Title>
             <Flex w="100%" direction="column" align="center" p={20} gap={20}>
-                <Button variant="light" color="#1F3E95" onClick={() => navigate('display', { state: CrispsControlDataReport })}>Crisps Control Record Report</Button>
+                <Button variant="light" onClick={() => navigate('display', { state: CrispsControlDataReport })}>Crisps Control Record Report</Button>
             </Flex>
         </Stack>
     )

@@ -51,7 +51,7 @@ export default function FormApprove() {
     return (
         <Flex h="100%" w="100%" direction="column" align="center">
             <Flex w="100%" justify="space-between" align="center">
-                <Button color="#1F3E95" variant="subtle" onClick={() => navigate(-1)}><IconArrowLeft /></Button>
+                <Button variant="subtle" onClick={() => navigate(-1)}><IconArrowLeft /></Button>
                 <Title order={3}>{categorizedValues.formName}</Title>
                 <Flex></Flex>
             </Flex>
@@ -69,7 +69,7 @@ export default function FormApprove() {
                 <TextInput pb={50} label="Approved by:" defaultValue="Supervisor" disabled p={10}></TextInput>
             </Center>
             <Divider w="100%" my="md" />
-            <Button color="#1F3E95" w={120} variant="filled" onClick={() => navigate("/home/form-check")}>Approve</Button>
+            <Button w={120} variant="filled" onClick={() => navigate("/home/form-check")}>Approve</Button>
         </Flex>
     )
 }

@@ -61,7 +61,7 @@ export default function FormCheck() {
                     ))}
                 </Grid>
             ))}
-            <Button color="#1F3E95" w={120} variant="filled" onClick={() => navigate("/home")}>OK</Button>
+            <Button w={120} variant="filled" onClick={() => navigate("/home")}>OK</Button>
         </Flex>
     )
 }

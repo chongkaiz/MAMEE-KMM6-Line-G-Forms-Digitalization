@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { MantineProvider } from '@mantine/core';
-
-import '@mantine/core/styles.css';
+import { MantineProvider, createTheme, MantineColorsTuple } from '@mantine/core';
 
 import HomePage from './HomePage/HomePage';
 import LandingPage from "./LandingPage/LandingPage";
@@ -16,6 +14,27 @@ import FormCheck from './Forms/FormCheck.tsx';
 import FormApprove from './FormApprove/FormApprove.tsx';
 import GraphDisplay from './Graphs/GraphDisplay.tsx';
 import ReportDisplay from './Reports/ReportDisplay.tsx';
+
+const myColor: MantineColorsTuple = [
+  '#eef2fb',
+  '#dae0f2',
+  '#b1bee6',
+  '#849adb',
+  '#607bd2',
+  '#4a68ce',
+  '#3e5fcd',
+  '#314eb5',
+  '#2945a3',
+  '#1e3c90'
+];
+
+const theme = createTheme({
+  focusRing: "never",
+  primaryColor: 'myColor',
+  colors: {
+    myColor,
+  }
+});
 
 
 function App() {
@@ -33,7 +52,7 @@ function App() {
     },
     {
       path: '/home',
-      element: <HomePage username={username} />,
+      element: <HomePage username={username} setUsername={setUsername} />,
       children: [
         {
           index: true,
@@ -82,7 +101,7 @@ function App() {
     }
   ]);
   return (
-    <MantineProvider>
+    <MantineProvider theme={theme}>
       <RouterProvider router={router} />
     </MantineProvider>
   )

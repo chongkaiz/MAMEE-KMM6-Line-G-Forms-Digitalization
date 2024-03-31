@@ -142,7 +142,7 @@ export default function Forms() {
     return (
         <Flex h="100%" w="100%" direction="column" justify="space-between">
             <Flex w="100%" justify="space-between" align="center">
-                <Button color="#1F3E95" variant="subtle" onClick={() => navigate(-1)}><IconArrowLeft /></Button>
+                <Button variant="subtle" onClick={() => navigate(-1)}><IconArrowLeft /></Button>
                 <Title order={3}>{formData.formName}</Title>
                 <Flex></Flex>
             </Flex>
@@ -194,7 +194,7 @@ export default function Forms() {
                 </FormProvider>
                 <Divider w="100%" my="md" />
                 <Center>
-                    <Button color="#1F3E95" mt={60} type="submit" disabled={isSubmitting} loading={isSubmitting}>
+                    <Button mt={60} type="submit" disabled={isSubmitting} loading={isSubmitting}>
                         Submit
                     </Button>
                 </Center>

@@ -41,9 +41,9 @@ export default function GraphDisplay() {
     return (
         <Flex h="100%" w="100%" direction="column" align="center">
             <Flex w="100%" justify="space-between" align="center">
-                <Button color="#1F3E95" variant="subtle" onClick={() => navigate(-1)}><IconArrowLeft /></Button>
+                <Button variant="subtle" onClick={() => navigate(-1)}><IconArrowLeft /></Button>
                 <Title order={3}>{formName}</Title>
-                <Button color="#1F3E95" variant="outline"><IconFileTypePdf /></Button>
+                <Button variant="outline"><IconFileTypePdf /></Button>
             </Flex>
             <Divider my="md" w="100%" />
             <Flex w="100%" h="100%" direction="column" gap={20}>

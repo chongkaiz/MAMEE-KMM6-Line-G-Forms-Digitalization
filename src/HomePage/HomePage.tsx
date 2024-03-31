@@ -7,7 +7,7 @@ import { useNavigate, Outlet } from 'react-router-dom'
 
 
 
-export default function HomePage(props: {username: string}) {
+export default function HomePage(props: { username: string, setUsername: React.Dispatch<React.SetStateAction<string>> }) {
     const [loading, setLoading] = useState(false);
     const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
     const [active, setActive] = useState(0);
@@ -59,14 +59,13 @@ export default function HomePage(props: {username: string}) {
             header={{ height: 80 }}
             navbar={{ width: 250, breakpoint: 'sm', collapsed: { mobile: !desktopOpened, desktop: !desktopOpened } }}
             padding="md"
-            withBorder={false}
         >
-            <AppShell.Header bg="#1F3E95">
+            <AppShell.Header bg="myColor">
                 <Flex h="100%" w="100%" px="md" justify="space-between" align="center">
                     <Group>
                         <Burger color="white" opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size="sm" />
                         <img style={{ maxWidth: 120 }} alt='mamee-logo' src="\src\assets\Mamee.png" />
-                        <Title order={1} c='white' ff="Sans-serif" fw='normal'>SwiftPlant</Title>
+                        <Title order={1} c='white' fw='normal'>SwiftPlant</Title>
                     </Group>
                     <Group gap={20}>
                         <Stack gap={0}>
@@ -80,10 +79,10 @@ export default function HomePage(props: {username: string}) {
                     </Group>
                 </Flex>
             </AppShell.Header>
-            <AppShell.Navbar p="md" style={{ borderRight: "#1F3E95 0.5px solid" }}>
+            <AppShell.Navbar p="md" c="myColor" withBorder>
                 <Stack gap={0} justify='space-between' h='100%'>
                     <Stack>
-                        <Title pb={20} c="#1F3E95" order={4}>Menu</Title>
+                        <Title pb={20} order={4}>Menu</Title>
                         {navLinkData.map((item, index) => (
                             <NavLink
                                 key={item.label}
@@ -94,18 +93,20 @@ export default function HomePage(props: {username: string}) {
                                 leftSection={<item.icon size="1rem" stroke={1.5} />}
                                 variant='light'
                                 onClick={() => {
-                                    toggleDesktop()
                                     navigate(item.link)
                                     setActive(index)
                                 }}
-                                c="#1F3E95"
+                                c="myColor"
                             />
                         ))}
                     </Stack>
                     <Stack>
-                        <Button color="#1F3E95" loading={loading} leftSection={<IconLogout />} loaderProps={{ type: 'dots' }} onClick={() => {
+                        <Button loading={loading} leftSection={<IconLogout />} loaderProps={{ type: 'dots' }} onClick={() => {
                             setLoading(true);
-                            setTimeout(function () { navigate("/login"); }, 1500)
+                            setTimeout(function () {
+                                props.setUsername("");
+                                navigate("/login");
+                            }, 1000)
                         }}>Logout</Button>
                     </Stack>
                 </Stack>

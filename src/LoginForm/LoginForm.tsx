@@ -13,7 +13,7 @@ export default function LoginForm(props: {username : string, setUsername : React
             <Flex h="80vh" direction="column" justify="space-between" align="center">
                 <img style={{ height: 120 }} alt='mamee-logo' src="\src\assets\Mamee.png" />
                 <Flex h={400} direction="column" justify="space-between" p={30} bg="white"
-                    style={{ border: "1px black solid", borderRadius: "30px", boxShadow: "5px 5px #AAAAAA" }}>
+                    style={{ border: "black solid 1px", borderRadius: "30px", boxShadow: "5px 5px #AAAAAA" }}>
                     <Stack gap={0}>
                         <Title order={2}>Login</Title>
                         <Divider mb={0} mt={10} color="black" my="md" />
@@ -29,7 +29,7 @@ export default function LoginForm(props: {username : string, setUsername : React
                         </Stack>
                         <PasswordInput w={250} style={{ textAlign: "left" }} label="Password:" placeholder="Password"></PasswordInput>
                     </Stack>
-                    <Button color="#1F3E95" loading={loading} loaderProps={{ type: 'dots' }} onClick={() => {
+                    <Button loading={loading} loaderProps={{ type: 'dots' }} onClick={() => {
                         setLoading(true);
                         setTimeout(function () {
                             if (props.username == "Operator" || props.username == "operator" || props.username == "Supervisor" || props.username == "supervisor") {
@@ -39,7 +39,7 @@ export default function LoginForm(props: {username : string, setUsername : React
                                 setLoading(false);
                                 setWrongUser(true);
                             }
-                        }, 1500)
+                        }, 1000)
                     }}>Login</Button>
                 </Flex>
                 <Flex h={120}></Flex>
