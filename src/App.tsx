@@ -10,8 +10,8 @@ import './App.css'
 
 
 import { FormsPage, ReviewPage, GraphPage, ReportsPage, NewFormPage } from './Pages/Pages'
-import FormCheck from './Forms/FormCheck.tsx';
-import FormApprove from './FormApprove/FormApprove.tsx';
+import FormSubmitReview from './Forms/FormSubmitReview.tsx';
+import FormApprove from './Forms/FormApprove.tsx';
 import GraphDisplay from './Graphs/GraphDisplay.tsx';
 import ReportDisplay from './Reports/ReportDisplay.tsx';
 
@@ -64,7 +64,7 @@ function App() {
         },
         {
           path: 'form-input/check',
-          element: <FormCheck />
+          element: <FormSubmitReview />
         },
         {
           path: 'form-check',

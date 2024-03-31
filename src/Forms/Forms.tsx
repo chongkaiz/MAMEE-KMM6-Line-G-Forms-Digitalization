@@ -100,17 +100,6 @@ export default function Forms() {
 
 
     function onSubmit(data: any) {
-        // console.log('watchHeaderFields');
-        // console.log(watchHeaderFields);
-        // console.log('watchTimeFields');
-        // console.log(watchTimeFields);
-        // console.log('watchDataFields');
-        // console.log(watchDataFields);
-        // console.log('watchCheckFields');
-        // console.log(watchCheckFields);
-        // console.log('watchFooterFields');
-        // console.log(watchFooterFields);
-
         let headerSection = mapValues(labelHeaderFields, watchHeaderFields);
         let timeSection = mapValues(labelTimeFields, watchTimeFields);
         let dataSection = mapValues(labelDataFields, watchDataFields);
